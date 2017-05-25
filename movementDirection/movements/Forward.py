@@ -1,8 +1,9 @@
-from movementDirection.movements import Direction
+from movementDirection.movements.Direction import DirectionAbstract
 import RPi.GPIO as GPIO
 from ..config.GpioPinConfig import GpioPinConfig as pin
 
-class Forward(Direction):
+class Forward(DirectionAbstract):
+
     def direction(self):
        GPIO.output(pin.ENABLE_ENGINE_A, True)
        GPIO.output(pin.ENABLE_ENGINE_B, True)

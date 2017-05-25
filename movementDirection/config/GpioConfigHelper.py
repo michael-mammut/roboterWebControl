@@ -1,5 +1,7 @@
 import RPi.GPIO as GPIO
+
 from .GpioPinConfig import GpioPinConfig as pin
+
 
 class GpioConfiHelper:
     # Set all Pins to low

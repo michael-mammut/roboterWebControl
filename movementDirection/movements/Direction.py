@@ -4,6 +4,9 @@ class DirectionAbstract:
     _engineB = False
     _speed = 0
 
+    def __init__(self):
+        pass
+
     def drive(self):
         pass
 
