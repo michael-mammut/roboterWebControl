@@ -8,8 +8,8 @@ class Forward(DirectionAbstract):
        GPIO.output(pin.ENABLE_ENGINE_A, True)
        GPIO.output(pin.ENABLE_ENGINE_B, True)
        GPIO.output(pin.INPUT1, True)
-       GPIO.output(pin.INPUT2, True)
+       GPIO.output(pin.INPUT2, False)
        GPIO.output(pin.INPUT3, True)
-       GPIO.output(pin.INPUT4, True)
+       GPIO.output(pin.INPUT4, False)
        return "FORWARD"
 
