@@ -6,12 +6,12 @@ from .GpioPinConfig import GpioPinConfig as pin
 class GpioConfiHelper:
     # Set all Pins to low
     def all_off(self):
-        GPIO.output(pin.ENABLE_ENGINE_A, 0)
-        GPIO.output(pin.ENABLE_ENGINE_B, 0)
-        GPIO.output(pin.INPUT1, 0)
-        GPIO.output(pin.INPUT2, 0)
-        GPIO.output(pin.INPUT3, 0)
-        GPIO.output(pin.INPUT4, 0)
+        GPIO.output(pin.ENABLE_ENGINE_A, str(0))
+        GPIO.output(pin.ENABLE_ENGINE_B, str(0))
+        GPIO.output(pin.INPUT1, str(0))
+        GPIO.output(pin.INPUT2, str(0))
+        GPIO.output(pin.INPUT3, str(0))
+        GPIO.output(pin.INPUT4, str(0))
         return "ALL GPIOS OFF"
 
     # Define all Pins to output
