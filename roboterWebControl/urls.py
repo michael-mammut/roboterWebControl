@@ -23,6 +23,9 @@ urlpatterns = [
     url(r'^movements/on/$', views.MovementDirection.as_view({'get':'on'})),
     url(r'^movements/off/$', views.MovementDirection.as_view({'get':'off'})),
     url(r'^movements/forward/$', views.MovementDirection.as_view({'get':'forward'})),
+    url(r'^movements/backwards/$', views.MovementDirection.as_view({'get':'backwards'})),
+    url(r'^movements/left/$', views.MovementDirection.as_view({'get':'left'})),
+    url(r'^movements/right/$', views.MovementDirection.as_view({'get':'right'})),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
