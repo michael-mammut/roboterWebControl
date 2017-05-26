@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^movements/on/$', views.MovementDirection.as_view({'get':'on'})),
     url(r'^movements/off/$', views.MovementDirection.as_view({'get':'off'})),
+    url(r'^movements/forward/$', views.MovementDirection.as_view({'get':'forward'})),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
