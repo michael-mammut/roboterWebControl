@@ -1,3 +1,6 @@
+from django.http import HttpResponse
+from django.http import Http404
+from django.template import loader
 from rest_framework.decorators import detail_route
 from rest_framework.response import  Response
 from rest_framework.viewsets import ViewSet
@@ -9,9 +12,16 @@ from movementDirection.movements.Left import Left
 from movementDirection.movements.Right import Right
 
 
+# PAGE CALLS
+def index(request):
+    template = loader.get_template('index.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
 
+# REST REQUESTS
 #movement/
 class MovementDirection(ViewSet):
+
     @detail_route(methods=['get'])
     def on(self, request):
         start = Start()

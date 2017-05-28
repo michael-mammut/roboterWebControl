@@ -1,0 +1,90 @@
+<!-- THE FOLLOWING CODE IS JUST TO VERIFICATION OF MY CONCEPT AN WILL BE REFACTORED SO SOON AS POSSIBLE-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <style type="text/css">
+        .controll-button{ width: 100px; margin: 5px}
+    </style>
+
+    <script type="text/javascript">
+        function httpGet(theUrl)
+        {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", theUrl ); // false for synchronous request
+            xmlHttp.send( null );
+            return xmlHttp.responseText;
+        }
+
+        var direction;
+        var buttonActiv = 0;
+        function drive(pressed){
+            console.info(event.keyCode);
+            result = "-";
+            if(pressed == 1 && buttonActiv == 0){
+                buttonActiv = pressed;
+                keyCode = event.keyCode;
+                switch (keyCode){
+                    case (38):
+                        direction = "forward";
+                        break;
+                    case (39):
+                        direction = "right";
+                        break;
+                    case (39):
+                        direction = "backwards";
+                        break;
+                    case (37):
+                        direction = "left";
+                        break;
+                    case(115):
+                        direction = "off";
+                        break;
+                    case(97):
+                        direction = "on";
+                }
+                result = httpGet(direction);
+            }
+
+            if(pressed == 0 && buttonActiv == 1){
+                buttonActiv = pressed;
+                result = httpGet("off")
+            }
+
+            console.info(result)
+
+        }
+    </script>
+</head>
+<body onkeypress="drive(1)" onkeyup="drive(0)">
+
+<div>
+    <div style="margin-left: 47%;margin-right: 30%">
+        <h1>Controll Panel</h1>
+    </div>
+    <div style="margin-left: 53%;margin-right: 50%">
+        <button type="button" class="btn btn-primary controll-button">VOR</button>
+    </div>
+    <div style="margin-left: 44%">
+        <span>
+           <button type="button" class="btn btn-primary controll-button">LINKS</button>
+           <button type="button" class="btn btn-primary controll-button">STOP</button>
+            <button type="button" class="btn btn-primary controll-button">RECHTS</button>
+        </span>
+    </div>
+    <div style="margin-left: 53%;margin-right: 50%">
+        <button type="button" class="btn btn-primary controll-button">ZURÜCk</button>
+    </div>
+</div>
+<!-- jQuery first, then Tether, then Bootstrap JS. -->
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+</body>
+</html>
