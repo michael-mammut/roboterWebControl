@@ -24,12 +24,15 @@
 
         var direction;
         var buttonActiv = 0;
-        function drive(pressed){
-            console.info(event.keyCode);
+        function drive(pressed, keyCode){
+
             result = "-";
             if(pressed == 0 && buttonActiv == 0){
                 buttonActiv = pressed;
-                keyCode = event.keyCode;
+                if(keyCode == null || keyCode == undefined) {
+                    keyCode = event.keyCode;
+                }
+                console.info(keyCode);
                 switch (keyCode){
                     case (38):
                         direction = "forward";
@@ -60,9 +63,7 @@
                 console.info("RUN OFF");
                 result = httpGet("off")
             }
-
             console.info(result)
-
         }
     </script>
 </head>
@@ -73,17 +74,17 @@
         <h1>Controll Panel</h1>
     </div>
     <div style="margin-left: 53%;margin-right: 50%">
-        <button type="button" class="btn btn-primary controll-button">VOR</button>
+        <button type="button" class="btn btn-primary controll-button" onmousedown="drive(0,38)" onmouseup="drive(1,65)">VOR</button>
     </div>
     <div style="margin-left: 44%">
         <span>
-           <button type="button" class="btn btn-primary controll-button">LINKS</button>
-           <button type="button" class="btn btn-primary controll-button">STOP</button>
-            <button type="button" class="btn btn-primary controll-button">RECHTS</button>
+           <button type="button" class="btn btn-primary controll-button" onmousedown="drive(0,37)" onmouseup="drive(1, 65)">LINKS</button>
+           <button type="button" class="btn btn-primary controll-button" onmousedown="drive(1,65 )" onmouseup="drive(1, 65)">STOP</button>
+            <button type="button" class="btn btn-primary controll-button" onmousedown="drive(0,39)" onmouseup="drive(1, 65)">RECHTS</button>
         </span>
     </div>
     <div style="margin-left: 53%;margin-right: 50%">
-        <button type="button" class="btn btn-primary controll-button">ZURÜCk</button>
+        <button type="button" class="btn btn-primary controll-button" onmousedown="drive(0,40)" onmouseup="drive(1, 65)">ZURÜCk</button>
     </div>
 </div>
 <!-- jQuery first, then Tether, then Bootstrap JS. -->
