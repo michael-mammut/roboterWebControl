@@ -27,7 +27,7 @@
         function drive(pressed){
             console.info(event.keyCode);
             result = "-";
-            if(pressed == 1 && buttonActiv == 0){
+            if(pressed == 0 && buttonActiv == 0){
                 buttonActiv = pressed;
                 keyCode = event.keyCode;
                 switch (keyCode){
@@ -37,7 +37,7 @@
                     case (39):
                         direction = "right";
                         break;
-                    case (39):
+                    case (40):
                         direction = "backwards";
                         break;
                     case (37):
@@ -51,11 +51,13 @@
                     case(97):
                         direction = "on";
                 }
+                console.info("RUN: "+direction)
                 result = httpGet(direction);
             }
 
-            if(pressed == 0 && buttonActiv == 1){
+            if(pressed == 1 && buttonActiv == 1){
                 buttonActiv = pressed;
+                console.info("RUN OFF");
                 result = httpGet("off")
             }
 
@@ -64,7 +66,7 @@
         }
     </script>
 </head>
-<body onkeypress="drive(1)" onkeyup="drive(0)">
+<body onkeydown="drive(1)" onkeyup="drive(0)">
 
 <div>
     <div style="margin-left: 47%;margin-right: 30%">
