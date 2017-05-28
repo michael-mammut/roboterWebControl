@@ -1,11 +1,11 @@
 import RPi.GPIO as GPIO
-
 from .GpioPinConfig import GpioPinConfig as pin
-
+GPIO.setmode(GPIO.BOARD)
 
 class GpioConfiHelper:
     # Set all Pins to low
     def all_off(self):
+        self.all_out()
         GPIO.output(pin.ENABLE_ENGINE_A.value, 0)
         GPIO.output(pin.ENABLE_ENGINE_B.value, 0)
         GPIO.output(pin.INPUT1.value, 0)
